@@ -2,6 +2,11 @@ package com.bootcamp.smvch.model;
 
 import java.io.Serializable;
 
+
+ /**
+ * @author Sweekar karki
+ *
+ */
 public class Address implements Serializable{
 
 	private static final long serialVersionUID = -8404720426531521527L;
