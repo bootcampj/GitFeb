@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.bootcamp.smvch.model.User" table="user" catalog="usersdb">
+		<id name="user_id" type="java.lang.Integer">
+			<column name="user_id" />
+			<generator class="increment" />
+		</id>
+		
+	<property name="firstName" type="string">
+		<column name="firstName" length="10" not-null="true" />
+	</property>
+	
+	<property name="lastName" type="string">
+		<column name="lastName" length="10" not-null="true"/>
+	</property>
+	
+	<property name="email" type="string">
+		<column name="email" length="30" not-null="true" unique="true" />
+	</property>
+	
+	<property name="phone" type="string">
+		<column name="phone" length="10" not-null="true" />
+	</property>
+	
+	<property name="sex" type="string">
+		<column name="sex" length="6" not-null="true" />
+	</property>
+	
+	<property name="password" type="string">
+		<column name="password" length="30" not-null="true" />
+	</property>
+	
+	<property name="reg_date" type="string">
+		<column name="reg_date" length="10" not-null="true" />
+	</property>
+	
+	<property name="dob" type="string">
+		<column name="dob" length="10" not-null="true" />
+	</property>
+	
+<!-- 	<set name="getAddress" table="address" inverse="true" lazy="true" fetch="select">
+		<key>
+			<column name="add_id" not-null="true" />
+		</key>
+		<one-to-many class="com.bootcamp.smvch.model.Address"/>
+	</set> -->
+	
+	<one-to-one name="address" class="com.bootcamp.smvch.model.Address" cascade="save-update"></one-to-one>	
+    </class>
+
+</hibernate-mapping>
